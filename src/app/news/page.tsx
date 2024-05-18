@@ -7,7 +7,7 @@ export default function Page() {
  
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://shinod.in/wp-json/wp/v2/posts')
+      const response = await fetch('https://malabarvarthakal.com/wp-json/wp/v2/posts')
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
