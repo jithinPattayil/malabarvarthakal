@@ -25,7 +25,7 @@ export default function Page() {
 <ul>
       {data?.map((items:any,id) => (
 
-       <li  key={id}> <Link href={"news/"+items.id}key={id}> {items.title.rendered} </Link></li>
+       <li  key={id}> <Link href={"news/"+items.slug }key={id}> {items.title.rendered} </Link></li>
       ))}
     </ul>
 

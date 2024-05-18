@@ -27,8 +27,8 @@ async function getData(id:any) {
 
  async function Page({ params }:any) {
 
-  console.log(params.id)
-  const res = await getData(params.id);
+  console.log(params.slug)
+  const res = await getData(params.slug);
   return (
 
 <>
@@ -47,7 +47,7 @@ async function getData(id:any) {
 export async function generateStaticParams() {
   const posts = await fetch('http://malabarvarthakal.com/wp-json/wp/v2/posts').then((res) => res.json());
   return posts.map((post:any) => ({
-    id: post.id.toString(),
+    id: post.slug,
   }))
 }
 
