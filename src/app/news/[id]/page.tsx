@@ -13,7 +13,7 @@
 
 
 async function getData(id:any) {
-  const res = await fetch(`https://malabarvarthakal.com/wp-json/wp/v2/posts/${id}`)
+  const res = await fetch(`http://malabarvarthakal.com/wp-json/wp/v2/posts/${id}`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
@@ -26,14 +26,18 @@ async function getData(id:any) {
 }
 
  async function Page({ params }:any) {
+
+  console.log(params.id)
   const res = await getData(params.id);
   return (
+
 <>
-<h1> {res.title.rendered}</h1>
+
+ <h1> {res.title.rendered}</h1>
 
 <div
       dangerouslySetInnerHTML={{__html: res.content.rendered}}
-    />
+    /> *
 </>
 
   )
@@ -41,7 +45,7 @@ async function getData(id:any) {
 
 
 export async function generateStaticParams() {
-  const posts = await fetch('https://malabarvarthakal.com/wp-json/wp/v2/posts').then((res) => res.json());
+  const posts = await fetch('http://malabarvarthakal.com/wp-json/wp/v2/posts').then((res) => res.json());
   return posts.map((post:any) => ({
     id: post.id.toString(),
   }))
