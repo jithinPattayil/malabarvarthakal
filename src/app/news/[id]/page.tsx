@@ -13,7 +13,7 @@
 
 
 async function getData(id:any) {
-  const res = await fetch(`http://al-abrar.com/wp-json/wp/v2/posts/${id}`)
+  const res = await fetch(`https://al-abrar.com/wp-json/wp/v2/posts/${id}`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
@@ -41,7 +41,7 @@ async function getData(id:any) {
 
 
 export async function generateStaticParams() {
-  const posts = await fetch('http://al-abrar.com/wp-json/wp/v2/posts').then((res) => res.json());
+  const posts = await fetch('https://al-abrar.com/wp-json/wp/v2/posts').then((res) => res.json());
   return posts.map((post:any) => ({
     id: post.id.toString(),
   }))
